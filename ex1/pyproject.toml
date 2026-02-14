@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "py08"
+version = "1.0.0"
+description = "Project to use pandas, numpy, matplotlib, requests"
+authors = ["youssef khalouk"]
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.13"
+pandas = "*"
+numpy = "*"
+matplotlib = "*"
+requests = "*"
+
+[build-system]
+requires = ["poetry-core>=1.5.0"]
+build-backend = "poetry.core.masonry.api"

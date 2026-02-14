@@ -20,7 +20,8 @@ def main():
 
     try:
         import matplotlib
-        print(f"[OK] matplotlib ({matplotlib.__version__}) - Visualization ready")
+        print(f"[OK] matplotlib ({matplotlib.__version__}) ", end="")
+        print("- Visualization ready")
     except ImportError:
         print("[KO] matplotlib could not be imported!")
         matplotlib = None
@@ -31,9 +32,9 @@ def main():
         print("[KO] numpy could not be imported!")
         numpy = None
 
-    # Stop if essential dependencies are missing
-    if not all([pandas, matplotlib, numpy]):
-        print("\nSome required dependencies are missing. Please install them first.")
+    if not all((pandas, matplotlib, numpy)):
+        print("\nSome required dependencies are missing.", end="")
+        print(" Please install them first.")
         print("  pip install -r requirements.txt")
         print("or")
         print("  poetry install")
@@ -42,15 +43,16 @@ def main():
     import matplotlib.pyplot as plt
 
     print("Analyzing Matrix data...")
-    numpy.random.seed(42)
+
     data = numpy.random.normal(0, 1, 1000)
+
     df = pandas.DataFrame({"matrix_signal": data})
 
     print("Processing 1000 data points...")
     print("Generating visualization...")
 
-    plt.figure(figsize=(8, 5))
-    plt.hist(df["matrix_signal"], bins=30, alpha=0.7)
+    plt.figure(figsize=(10, 6))
+    plt.hist(df["matrix_signal"], bins=50, alpha=.7)
     plt.title("Matrix Signal Distribution")
     plt.tight_layout()
     plt.savefig("matrix_analysis.png")
